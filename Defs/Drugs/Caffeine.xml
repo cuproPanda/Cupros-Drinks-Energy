@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!-- Caffeine addiction -->
+
+	<ChemicalDef>
+		<defName>Caffeine</defName>
+		<label>caffeine</label>
+		<addictionHediff>CaffeineAddiction</addictionHediff>
+	</ChemicalDef>
+
+	<NeedDef ParentName="DrugAddictionNeedBase">
+		<defName>Chemical_Caffeine</defName>
+		<needClass>Need_Chemical</needClass>
+		<label>caffeine</label>
+		<description>Because of a developed caffeine dependence, this person needs to regularly consume the drug to avoid withdrawal symptoms.</description>
+		<listPriority>11</listPriority>
+	</NeedDef>
+
+	<HediffDef ParentName="DrugToleranceBase">
+		<defName>CaffeineTolerance</defName>
+		<label>caffeine tolerance</label>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.06</severityPerDay>
+			</li>			
+			<li Class="HediffCompProperties_DrugEffectFactor">
+				<chemical>Caffeine</chemical>
+			</li>
+		</comps>
+	</HediffDef>
+
+	<HediffDef ParentName="AddictionBase">
+		<defName>CaffeineAddiction</defName>
+		<hediffClass>Hediff_Addiction</hediffClass>
+		<label>caffeine dependence</label>
+		<causesNeed>Chemical_Caffeine</causesNeed>
+		<comps>
+			<li Class="HediffCompProperties_SeverityPerDay">
+				<severityPerDay>-0.05</severityPerDay>
+			</li>
+		</comps>
+		<stages>
+			<li>
+			</li>
+			<li>
+				<label>withdrawal</label>
+				<restFallFactor>1.2</restFallFactor>
+				<capMods>
+					<li>
+						<capacity>Manipulation</capacity>
+						<offset>-0.1</offset>
+					</li>
+					<li>
+						<capacity>BloodPumping</capacity>
+						<offset>-0.1</offset>
+					</li>
+				</capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+	<ThoughtDef>
+		<defName>CaffeineWithdrawal</defName>
+		<workerClass>ThoughtWorker_Hediff</workerClass>
+		<hediff>CaffeineAddiction</hediff>
+		<stages>
+			<li>
+				<visible>false</visible>
+			</li>
+			<li>
+				<label>caffeine withdrawal</label>
+				<description>I could really use a pick-me-up.</description>
+				<baseMoodEffect>-10</baseMoodEffect>
+			</li>
+		</stages>
+	</ThoughtDef>
+
+</Defs>
+
+
+
+
+
+

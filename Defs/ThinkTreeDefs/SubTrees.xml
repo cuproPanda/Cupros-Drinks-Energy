@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThinkTreeDef>
+		<defName>CPD_GetDrinkForRest</defName>
+		<insertTag>Humanlike_PreMain</insertTag>
+		<insertPriority>95</insertPriority>
+		<thinkRoot Class="ThinkNode_Priority" >
+			<subNodes>	
+				<li Class="CuprosDrinksEnergy.ThinkNode_ConditionalTired">
+					<minRest>VeryTired</minRest>
+					<subNodes>
+						<li Class="CuprosDrinksEnergy.JobGiver_GetDrinkForRest">
+							<strength>Strong</strength>
+						</li>
+					</subNodes>
+				</li>
+				<li Class="CuprosDrinksEnergy.ThinkNode_ConditionalTired">
+					<minRest>Tired</minRest>
+					<subNodes>
+						<li Class="CuprosDrinksEnergy.JobGiver_GetDrinkForRest">
+							<strength>Medium</strength>
+						</li>
+					</subNodes>
+				</li>
+			</subNodes>
+		</thinkRoot>
+	</ThinkTreeDef>
+
+</Defs>

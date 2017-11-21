@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>CPD_RawCoffeeBeans</defName>
+		<label>raw coffee beans</label>
+		<description>A small bundle of raw coffee beans.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/RawCoffeeBean</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<useHitPoints>true</useHitPoints>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<MarketValue>2</MarketValue>
+			<DeteriorationRate>2</DeteriorationRate>
+			<Mass>0.1</Mass>
+		</statBases>
+		<stackLimit>75</stackLimit>
+		<thingCategories>
+			<li>ResourcesRaw</li>
+		</thingCategories>
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>10</daysToRotStart>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef ParentName="ResourceBase">
+		<defName>CPD_CoffeeBeans</defName>
+		<label>roasted coffee beans</label>
+		<description>A small bundle of roasted coffee beans.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/CoffeeBean</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<useHitPoints>true</useHitPoints>
+		<statBases>
+			<MaxHitPoints>25</MaxHitPoints>
+			<MarketValue>3</MarketValue>
+			<DeteriorationRate>1</DeteriorationRate>
+			<Mass>0.1</Mass>
+		</statBases>
+		<stackLimit>75</stackLimit>
+		<thingCategories>
+			<li>ResourcesRaw</li>
+		</thingCategories>
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>90</daysToRotStart>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>
+
+
+
+
+
+

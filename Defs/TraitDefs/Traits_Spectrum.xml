@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TraitDef>
+    <defName>CaffeineSensitivity</defName>
+    <commonality>0.6</commonality>
+    <degreeDatas>
+      <li>
+        <label>caffeine hypersensitive</label>
+        <description>NAME's body can't handle caffeine. HECAP is extremely sensitive to caffeinated beverages like coffee and energy drinks, and will receive twice the effects of caffeine - good and bad.</description>
+        <degree>2</degree>
+      </li>
+      <li>
+        <label>caffeine sensitive</label>
+        <description>NAME is unusually sensitive to caffeinated beverages like coffee and energy drinks, and will receive 50% more of the effects of caffeine - good and bad.</description>
+        <degree>1</degree>
+      </li>
+      <li>
+        <label>caffeine resistant</label>
+        <description>NAME is used to regularly consuming caffeinated beverages like coffee and energy drinks. HECAP isn't as affected by caffeine, and will only receive 50% of the effects of caffeine - good and bad.</description>
+        <degree>-1</degree>
+      </li>
+    </degreeDatas>
+  </TraitDef>
+
+</Defs>

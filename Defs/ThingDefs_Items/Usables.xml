@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef ParentName="CPD_DrinkBase">
+		<defName>CPD_DecafCoffee</defName>
+		<label>decaf coffee</label>
+		<description>A delicious preparation of roasted and ground coffee beans without caffeine. Pleasurable to drink.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/Coffee/DecafCoffeeMug</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stackLimit>10</stackLimit>
+		<statBases>
+			<MarketValue>4</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>CPD_Drinks</li>
+		</thingCategories>
+		<ingestible>
+			<joy>0.05</joy>
+			<joyKind>Meditative</joyKind>
+		</ingestible>
+	</ThingDef>
+
+	<ThingDef ParentName="CPD_DrinkBase">
+		<defName>CPD_Coffee</defName>
+		<label>coffee</label>
+		<description>A delicious preparation of roasted and ground coffee beans. Pleasurable to drink, and it restores 10% rest.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/Coffee/CoffeeMug</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stackLimit>10</stackLimit>
+		<statBases>
+			<MarketValue>6</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>CPD_Energy</li>
+		</thingCategories>
+		<ingestible>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>CPD_PlainDrink</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<chance>1</chance>
+					<hediffDef>CPD_EnergyDrinkAffector</hediffDef>
+					<severity>0.1</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<chance>1</chance>
+					<hediffDef>CPD_EnergyDrinkEnergizer</hediffDef>
+					<severity>0.1</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>CaffeineTolerance</hediffDef>
+					<severity>0.02</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Caffeine</chemical>
+				<addictiveness>0.01</addictiveness>
+				<minToleranceToAddict>0.15</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.05</existingAddictionSeverityOffset>
+				<needLevelOffset>0.5</needLevelOffset>
+				<listOrder>11</listOrder>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CPD_DrinkBase">
+		<defName>CPD_DECoffee</defName>
+		<label>dead eye coffee</label>
+		<description>A strong preparation of roasted and ground coffee beans. Not pleasurable to drink, but it restores 20% rest.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/Coffee/DECoffeeMug</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<stackLimit>10</stackLimit>
+		<statBases>
+			<MarketValue>9</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>CPD_Energy</li>
+		</thingCategories>
+		<ingestible>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<ingestSound>CPD_PlainDrink</ingestSound>
+			<joyKind>Meditative</joyKind>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<chance>1</chance>
+					<hediffDef>CPD_EnergyDrinkAffector</hediffDef>
+					<severity>0.2</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<chance>1</chance>
+					<hediffDef>CPD_EnergyDrinkEnergizer</hediffDef>
+					<severity>0.2</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>CaffeineTolerance</hediffDef>
+					<severity>0.05</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Caffeine</chemical>
+				<addictiveness>0.02</addictiveness>
+				<minToleranceToAddict>0.15</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.1</existingAddictionSeverityOffset>
+				<needLevelOffset>1</needLevelOffset>
+				<listOrder>11</listOrder>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="CPD_DrinkBase">
+		<defName>CPD_ThrumboEnergy</defName>
+		<label>Thrumbo energy</label>
+		<description>A popular energy drink with a uniquely exotic flavor that guarantees to restore 30% rest to those who need it.\n"Take a blow from a Thrumbo!"</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/ThrumboEnergy</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>20</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>CPD_Energy</li>
+		</thingCategories>
+		<ingestible>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<foodType>Fluid, Processed</foodType>
+			<nutrition>0.03</nutrition>
+			<joy>0.10</joy>
+			<ingestSound>Ingest_Beer</ingestSound>
+			<joyKind>Chemical</joyKind>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<chance>1</chance>
+					<hediffDef>CPD_EnergyDrinkAffector</hediffDef>
+					<severity>0.3</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<chance>1</chance>
+					<hediffDef>CPD_EnergyDrinkEnergizer</hediffDef>
+					<severity>0.3</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>WakeUpTolerance</hediffDef>
+					<severity>0.0075</severity>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AmbrosiaTolerance</hediffDef>
+					<severity>0.0053</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>WakeUp</chemical>
+				<addictiveness>0.00166</addictiveness>
+				<minToleranceToAddict>0.08</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.0333</existingAddictionSeverityOffset>
+				<needLevelOffset>0.1667</needLevelOffset>
+				<listOrder>210</listOrder>
+				<overdoseSeverityOffset>
+					<min>0.04</min>
+					<max>0.08</max>
+				</overdoseSeverityOffset>
+			</li>
+			<li Class="CompProperties_Drug">
+				<chemical>Ambrosia</chemical>
+				<addictiveness>0.00166</addictiveness>
+				<minToleranceToAddict>0.15</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.0166</existingAddictionSeverityOffset>
+				<needLevelOffset>0.1667</needLevelOffset>
+				<listOrder>30</listOrder>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>

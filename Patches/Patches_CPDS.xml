@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- If Sodas is installed, add a recipe for making Thrumbo Energy -->
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="CuprosDrinks.PatchOperationModDependent">
+				<modName>Cupro's Drinks - Soda</modName>
+			</li>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/ThingDef[defName = "CPD_ThrumboEnergy"]</xpath>
+				<value>
+					<recipeMaker>
+						<workSpeedStat>DrugProductionSpeed</workSpeedStat>
+						<workSkill>Intellectual</workSkill>
+						<effectWorking>Cook</effectWorking>
+						<soundWorking>Recipe_CookMeal</soundWorking>
+						<researchPrerequisite>WakeUpProduction</researchPrerequisite>
+						<recipeUsers>
+							<li>DrugLab</li>
+						</recipeUsers>
+						<productCount>6</productCount>
+						<workAmount>750</workAmount>
+					</recipeMaker>
+					<costList>
+						<WakeUp>1</WakeUp>
+						<Ambrosia>1</Ambrosia>
+						<CPD_Agave>6</CPD_Agave>
+					</costList>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

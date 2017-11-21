@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>/Defs/TraderKindDef[defName = "Caravan_Outlander_BulkGoods"]/stockGenerators</xpath>
+				<value>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>CPD_CoffeeBeans</thingDef>
+						<countRange>
+							<min>50</min>
+							<max>300</max>
+						</countRange>
+					</li>
+					<li Class="StockGenerator_SingleDef">
+						<thingDef>CPD_CoffeeBeans</thingDef>
+						<countRange>
+							<min>100</min>
+							<max>600</max>
+						</countRange>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>
