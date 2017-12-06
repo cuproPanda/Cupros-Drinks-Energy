@@ -2,9 +2,43 @@
 <Defs>
 
 	<RecipeDef>
+		<defName>CPD_RoastBeans</defName>
+		<label>roast coffee beans</label>
+		<description>Roast coffee beans for brewing coffee.</description>
+		<jobString>Roasting coffee beans</jobString>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<workAmount>500</workAmount>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<targetCountAdjustment>5</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_RawCoffeeBeans</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_RawCoffeeBeans</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_CoffeeBeans>5</CPD_CoffeeBeans>
+		</products>
+		<recipeUsers>
+			<li>CPD_DrinksTable</li>
+		</recipeUsers>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+	
+	<RecipeDef>
 		<defName>CPD_BrewCoffee</defName>
 		<label>brew coffee</label>
-		<description>Roast, grind, and brew coffee beans to make coffee.</description>
+		<description>Grind and brew roasted coffee beans to make coffee.</description>
 		<jobString>Brewing coffee</jobString>
 		<workSpeedStat>CookSpeed</workSpeedStat>
 		<workAmount>500</workAmount>
@@ -41,7 +75,7 @@
 	<RecipeDef>
 		<defName>CPD_BrewCoffeeBulk</defName>
 		<label>brew coffee (bulk)</label>
-		<description>Roast, grind, and brew coffee beans to make coffee.</description>
+		<description>Grind and brew roasted coffee beans to make coffee.</description>
 		<jobString>Brewing coffee</jobString>
 		<workSpeedStat>BrewingSpeed</workSpeedStat>
 		<workAmount>1500</workAmount>
@@ -78,7 +112,7 @@
 	<RecipeDef>
 		<defName>CPD_BrewDECoffee</defName>
 		<label>brew dead eye coffee</label>
-		<description>Slowly roast, double grind, and carefully brew coffee beans to make a very potent coffee.</description>
+		<description>Double grind, press, and carefully brew roasted coffee beans to make a very potent coffee.</description>
 		<jobString>Brewing dead eye coffee</jobString>
 		<workSpeedStat>CookSpeed</workSpeedStat>
 		<workAmount>1500</workAmount>
@@ -118,7 +152,7 @@
 	<RecipeDef>
 		<defName>CPD_BrewDecafCoffee</defName>
 		<label>brew decaf coffee</label>
-		<description>Roast, grind, soak, and brew coffee beans to make decaf coffee.</description>
+		<description>Grind, soak, and brew roasted coffee beans to make decaf coffee.</description>
 		<jobString>Brewing decaf coffee</jobString>
 		<workSpeedStat>CookSpeed</workSpeedStat>
 		<workAmount>1250</workAmount>
@@ -155,7 +189,7 @@
 	<RecipeDef>
 		<defName>CPD_BrewDecafCoffeeBulk</defName>
 		<label>brew decaf coffee (bulk)</label>
-		<description>Roast, grind, soak, and brew coffee beans to make decaf coffee.</description>
+		<description>Grind, soak, and brew roasted coffee beans to make decaf coffee.</description>
 		<jobString>Brewing decaf coffee</jobString>
 		<workSpeedStat>BrewingSpeed</workSpeedStat>
 		<workAmount>2500</workAmount>
