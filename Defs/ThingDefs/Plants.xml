@@ -10,7 +10,7 @@
 		<plant>
 			<sowTags />
 			<harvestTag>Standard</harvestTag>
-			<harvestedThingDef>CPD_CoffeeBeans</harvestedThingDef>
+			<harvestedThingDef>CPD_RawCoffeeBeans</harvestedThingDef>
 			<blockAdjacentSow>false</blockAdjacentSow>
 			<growDays>8</growDays>
 			<lifespanFraction>4</lifespanFraction>
@@ -68,7 +68,7 @@
 		<altitudeLayer>LowPlant</altitudeLayer>
 		<plant>
 			<dieIfLeafless>true</dieIfLeafless>
-			<harvestMinGrowth>1.0</harvestMinGrowth>
+			<harvestMinGrowth>0.99</harvestMinGrowth>
 			<harvestYield>7</harvestYield>
 			<harvestWork>500</harvestWork>
 			<sowWork>300</sowWork>
