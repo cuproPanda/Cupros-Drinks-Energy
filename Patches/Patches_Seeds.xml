@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<!-- If SeedsPlease is found, add seeds -->
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="CuprosDrinks.PatchOperationModDependent">
+				<modName>SeedsPlease</modName>
+			</li>
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/ThingDef[@Name="CPD_ThingInsertion"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<SeedsPlease.SeedDef ParentName="SeedBase">
+						<defName>CPD_SeedCoffee</defName>
+						<label>coffee seeds</label>
+						<plant>CPD_PlantCoffee</plant>
+						<graphicData><texPath>Cupro/Item/Material/Seeds/SeedCoffee</texPath></graphicData>
+					</SeedsPlease.SeedDef>
+					
+					<SeedsPlease.SeedDef ParentName="SeedBase">
+						<defName>CPD_SeedHydroCoffee</defName>
+						<label>hydroponic coffee seeds</label>
+						<plant>CPD_HydroCoffee</plant>
+						<graphicData><texPath>Cupro/Item/Material/Seeds/SeedCoffee</texPath></graphicData>
+					</SeedsPlease.SeedDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="CuprosDrinks.PatchOperationModDependent">
+				<modName>SeedsPlease</modName>
+			</li>
+			<li Class="PatchOperationInsert">
+				<xpath>/Defs/RecipeDef[@Name="CPD_RecipeInsertion"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<RecipeDef ParentName="ProcessRaw">
+						<defName>CPD_ProcessCoffeeSeedHydro</defName>
+						<label>process hydroponic coffee seeds</label>
+						<description>Process hydroponic coffee seeds for growing in the ground.</description>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>CPD_SeedHydroCoffee</li>
+									</thingDefs>
+								</filter>
+								<count>2</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>CPD_SeedHydroCoffee</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<CPD_SeedCoffee>2</CPD_SeedCoffee>
+						</products>
+					</RecipeDef>
+
+					<RecipeDef ParentName="ProcessRaw">
+						<defName>CPD_ProcessCoffeeSeedReg</defName>
+						<label>process coffee seeds</label>
+						<description>Process regular coffee seeds for growing in hydroponics.</description>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>CPD_SeedCoffee</li>
+									</thingDefs>
+								</filter>
+								<count>2</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>CPD_SeedCoffee</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<CPD_SeedHydroCoffee>2</CPD_SeedHydroCoffee>
+						</products>
+					</RecipeDef>
+					
+					<RecipeDef ParentName="ExtractSeed">
+						<defName>CPD_ExtractSeedCoffee</defName>
+						<label>extract coffee seeds</label>
+						<description>Extract seeds from coffee beans.</description>
+						<recipeUsers>
+							<li>PlantProcessingTable</li>
+						</recipeUsers>
+						<ingredients>
+							<li>
+								<filter>
+									<thingDefs>
+										<li>CPD_RawCoffeeBeans</li>
+									</thingDefs>
+								</filter>
+								<count>10</count>
+							</li>
+						</ingredients>
+						<fixedIngredientFilter>
+							<thingDefs>
+								<li>CPD_RawCoffeeBeans</li>
+							</thingDefs>
+						</fixedIngredientFilter>
+						<products>
+							<CPD_SeedCoffee>5</CPD_SeedCoffee>
+						</products>
+					</RecipeDef>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

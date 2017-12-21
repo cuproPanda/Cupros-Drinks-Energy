@@ -7,7 +7,7 @@
 		<description>A small bundle of raw coffee beans.</description>
 		<graphicData>
 			<texPath>Cupro/Item/Material/RawCoffeeBean</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_StackCount</graphicClass>
 		</graphicData>
 		<useHitPoints>true</useHitPoints>
 		<statBases>
@@ -34,7 +34,7 @@
 		<description>A small bundle of roasted coffee beans.</description>
 		<graphicData>
 			<texPath>Cupro/Item/Material/CoffeeBean</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_StackCount</graphicClass>
 		</graphicData>
 		<useHitPoints>true</useHitPoints>
 		<statBases>
