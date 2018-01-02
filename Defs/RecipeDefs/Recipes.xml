@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<RecipeDef>
-		<defName>CPD_RoastBeans</defName>
-		<label>roast coffee beans</label>
+	<RecipeDef Name="CPD_RoastBeansBase" Abstract="True">
 		<description>Roast coffee beans for brewing coffee.</description>
 		<jobString>Roasting coffee beans</jobString>
 		<workSpeedStat>CookSpeed</workSpeedStat>
-		<workAmount>500</workAmount>
 		<effectWorking>Cook</effectWorking>
 		<soundWorking>Recipe_Brewing</soundWorking>
+		<recipeUsers>
+			<li>CPD_DrinksTable</li>
+		</recipeUsers>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+	<RecipeDef ParentName="CPD_RoastBeansBase">
+		<defName>CPD_RoastBeans</defName>
+		<label>roast coffee beans</label>
+		<workAmount>500</workAmount>
 		<targetCountAdjustment>5</targetCountAdjustment>
 		<ingredients>
 			<li>
@@ -29,21 +35,47 @@
 		<products>
 			<CPD_CoffeeBeans>5</CPD_CoffeeBeans>
 		</products>
+	</RecipeDef>
+	<RecipeDef ParentName="CPD_RoastBeansBase">
+		<defName>CPD_RoastBeansBulk</defName>
+		<label>roast coffee beans (bulk)</label>
+		<workAmount>1000</workAmount>
+		<targetCountAdjustment>25</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_RawCoffeeBeans</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_RawCoffeeBeans</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_CoffeeBeans>25</CPD_CoffeeBeans>
+		</products>
+	</RecipeDef>
+	
+	<RecipeDef Name="CPD_BrewCoffeeBase" Abstract="True">
+		<description>Grind and brew roasted coffee beans to make coffee.</description>
+		<jobString>Brewing coffee</jobString>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
 		<recipeUsers>
 			<li>CPD_DrinksTable</li>
 		</recipeUsers>
 		<workSkill>Cooking</workSkill>
 	</RecipeDef>
-	
-	<RecipeDef>
+	<RecipeDef ParentName="CPD_BrewCoffeeBase">
 		<defName>CPD_BrewCoffee</defName>
 		<label>brew coffee</label>
-		<description>Grind and brew roasted coffee beans to make coffee.</description>
-		<jobString>Brewing coffee</jobString>
-		<workSpeedStat>CookSpeed</workSpeedStat>
 		<workAmount>500</workAmount>
-		<effectWorking>Cook</effectWorking>
-		<soundWorking>Recipe_Brewing</soundWorking>
 		<targetCountAdjustment>2</targetCountAdjustment>
 		<ingredients>
 			<li>
@@ -63,24 +95,14 @@
 		<products>
 			<CPD_Coffee>2</CPD_Coffee>
 		</products>
-		<recipeUsers>
-			<li>CPD_DrinksTable</li>
-		</recipeUsers>
 		<skillRequirements>
 			<Cooking>3</Cooking>
 		</skillRequirements>
-		<workSkill>Cooking</workSkill>
 	</RecipeDef>
-
-	<RecipeDef>
+	<RecipeDef ParentName="CPD_BrewCoffeeBase">
 		<defName>CPD_BrewCoffeeBulk</defName>
 		<label>brew coffee (bulk)</label>
-		<description>Grind and brew roasted coffee beans to make coffee.</description>
-		<jobString>Brewing coffee</jobString>
-		<workSpeedStat>BrewingSpeed</workSpeedStat>
 		<workAmount>1500</workAmount>
-		<effectWorking>Cook</effectWorking>
-		<soundWorking>Recipe_Brewing</soundWorking>
 		<targetCountAdjustment>20</targetCountAdjustment>
 		<ingredients>
 			<li>
@@ -100,13 +122,75 @@
 		<products>
 			<CPD_Coffee>20</CPD_Coffee>
 		</products>
-		<recipeUsers>
-			<li>CPD_DrinksTable</li>
-		</recipeUsers>
 		<skillRequirements>
 			<Cooking>4</Cooking>
 		</skillRequirements>
+	</RecipeDef>
+
+	<RecipeDef Name="CPD_BrewDecafCoffeeBase" Abstract="True">
+		<description>Grind, soak, and brew roasted coffee beans to make decaf coffee.</description>
+		<jobString>Brewing decaf coffee</jobString>
+		<workSpeedStat>CookSpeed</workSpeedStat>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<recipeUsers>
+			<li>CPD_DrinksTable</li>
+		</recipeUsers>
 		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+	<RecipeDef ParentName="CPD_BrewDecafCoffeeBase">
+		<defName>CPD_BrewDecafCoffee</defName>
+		<label>brew decaf coffee</label>
+		<workAmount>1250</workAmount>
+		<targetCountAdjustment>3</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_CoffeeBeans</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_CoffeeBeans</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_DecafCoffee>3</CPD_DecafCoffee>
+		</products>
+		<skillRequirements>
+			<Cooking>3</Cooking>
+		</skillRequirements>
+	</RecipeDef>
+	<RecipeDef ParentName="CPD_BrewDecafCoffeeBase">
+		<defName>CPD_BrewDecafCoffeeBulk</defName>
+		<label>brew decaf coffee (bulk)</label>
+		<workAmount>2500</workAmount>
+		<targetCountAdjustment>30</targetCountAdjustment>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_CoffeeBeans</li>
+					</thingDefs>
+				</filter>
+				<count>50</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_CoffeeBeans</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_DecafCoffee>30</CPD_DecafCoffee>
+		</products>
+		<skillRequirements>
+			<Cooking>4</Cooking>
+		</skillRequirements>
 	</RecipeDef>
 
 	<RecipeDef>
@@ -146,80 +230,6 @@
 		<researchPrerequisite>
 			<li>CPD_ConcentratedCoffee</li>
 		</researchPrerequisite>
-		<workSkill>Cooking</workSkill>
-	</RecipeDef>
-
-	<RecipeDef>
-		<defName>CPD_BrewDecafCoffee</defName>
-		<label>brew decaf coffee</label>
-		<description>Grind, soak, and brew roasted coffee beans to make decaf coffee.</description>
-		<jobString>Brewing decaf coffee</jobString>
-		<workSpeedStat>CookSpeed</workSpeedStat>
-		<workAmount>1250</workAmount>
-		<effectWorking>Cook</effectWorking>
-		<soundWorking>Recipe_Brewing</soundWorking>
-		<targetCountAdjustment>3</targetCountAdjustment>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CPD_CoffeeBeans</li>
-					</thingDefs>
-				</filter>
-				<count>5</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CPD_CoffeeBeans</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<CPD_DecafCoffee>3</CPD_DecafCoffee>
-		</products>
-		<recipeUsers>
-			<li>CPD_DrinksTable</li>
-		</recipeUsers>
-		<skillRequirements>
-			<Cooking>3</Cooking>
-		</skillRequirements>
-		<workSkill>Cooking</workSkill>
-	</RecipeDef>
-
-	<RecipeDef>
-		<defName>CPD_BrewDecafCoffeeBulk</defName>
-		<label>brew decaf coffee (bulk)</label>
-		<description>Grind, soak, and brew roasted coffee beans to make decaf coffee.</description>
-		<jobString>Brewing decaf coffee</jobString>
-		<workSpeedStat>BrewingSpeed</workSpeedStat>
-		<workAmount>2500</workAmount>
-		<effectWorking>Cook</effectWorking>
-		<soundWorking>Recipe_Brewing</soundWorking>
-		<targetCountAdjustment>30</targetCountAdjustment>
-		<ingredients>
-			<li>
-				<filter>
-					<thingDefs>
-						<li>CPD_CoffeeBeans</li>
-					</thingDefs>
-				</filter>
-				<count>50</count>
-			</li>
-		</ingredients>
-		<fixedIngredientFilter>
-			<thingDefs>
-				<li>CPD_CoffeeBeans</li>
-			</thingDefs>
-		</fixedIngredientFilter>
-		<products>
-			<CPD_DecafCoffee>30</CPD_DecafCoffee>
-		</products>
-		<recipeUsers>
-			<li>CPD_DrinksTable</li>
-		</recipeUsers>
-		<skillRequirements>
-			<Cooking>4</Cooking>
-		</skillRequirements>
 		<workSkill>Cooking</workSkill>
 	</RecipeDef>
 
